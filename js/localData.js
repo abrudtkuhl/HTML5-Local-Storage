@@ -29,7 +29,7 @@
 		},
 		getJSON: function getJSON() {
 			console.log("getting json data from local data storage");
-			ko.toJSON(this.viewModel);
+			return ko.toJSON(this.viewModel);
 		},
 		viewModel: this.viewModel
 	}

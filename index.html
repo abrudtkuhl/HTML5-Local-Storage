@@ -78,7 +78,7 @@
 						Company: <span data-bind="text: company"></span><br />
 						Occupation: <span data-bind="text: occupation"></span><br />
 					</div>
-					<button id="submitForm" type="button" class="btn btn-primary">Submit</button>
+					<a href="#confirmModal" role="button" class="btn btn-primary" data-toggle="modal">Submit</a>
 				</fieldset>
 			</div>
 		</div>
@@ -89,18 +89,21 @@
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="https://raw.github.com/andris9/jStorage/master/jstorage.js"></script>
 	<script src="http://cloud.github.com/downloads/SteveSanderson/knockout/knockout-2.1.0.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script src="js/steps.js"></script>
 	<script src="js/localData.js"></script>
 	<script>
 		$(document).ready(function() { 
+			checkStep();
+
 			$("#submitForm").click(function() {
 				console.log("saving data::" + $.localData.getJSON());
 				$.localData.flush();
+				$("#confirmModal").modal('hide');
+				checkStep();
 			});
 
 			$("input").focusout(function() { $.localData.saveObject($(this)); });
-
-			checkStep();
 		});
 		$.localData.viewModel = {
 			name : ko.observable($.jStorage.get("name")),
@@ -111,6 +114,18 @@
 		ko.applyBindings($.localData.viewModel);
 
 	</script>
-
+	<div class="modal hide fade" id="confirmModal">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    <h3>Thanks for registering</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>You'll get an email from us </p>
+	  </div>
+	  <div class="modal-footer">
+	    <a href="#" class="btn">Close</a>
+	    <a href="#" id="submitForm" data-toggle="modal" class="btn btn-primary">Save</a>
+	  </div>
+	</div>
 </body>
 </html>
