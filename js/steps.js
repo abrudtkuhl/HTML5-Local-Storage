@@ -1,6 +1,6 @@
 (function($) {
 	$(".next").click(function() {
-		$.localData.set();
+		
 	})
 
 	$("#step1 .next").click(function() {
