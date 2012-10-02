@@ -23,12 +23,11 @@
 				</div>
 			</div>
 		</div>
-		<hr />
 		<div class="row-fluid">
 			<div class="span12">
 				<fieldset id="step1">
 					<legend>Your Information</legend>
-					<form id="formStep1" class="form-horizontal">
+					<form id="formStep1" class="form-horizontal" action="#">
 						<div class="control-group">
 							<label class="control-label" for="name">Name</label>
 							<div class="controls">
@@ -49,8 +48,8 @@
 					</form>
 				</fieldset>
 				<fieldset id="step2" class="hide">
-					<legend>Your Information</legend>
-					<form id="formStep2" class="form-horizontal">
+					<legend>Your Job</legend>
+					<form id="formStep2" class="form-horizontal" action="#">
 						<div class="control-group">
 							<label class="control-label" for="occupation">Occupation</label>
 							<div class="controls">
@@ -60,7 +59,7 @@
 						<div class="control-group">
 							<label class="control-label" for="company">Company</label>
 							<div class="controls">
-								<input type="text" id="company" name="company" />
+								<input type="text" id="company" name="company" data-bind="value: company" />
 							</div>
 						</div>
 						<div class="control-group">
@@ -73,6 +72,12 @@
 				</fieldset>
 				<fieldset id="step3" class="hide">
 					<legend>Review and Submit</legend>
+					<div class="well">
+						Name: <span data-bind="text: name"></span><br />
+						Email: <span data-bind="text: email"></span><br />
+						Company: <span data-bind="text: company"></span><br />
+						Occupation: <span data-bind="text: occupation"></span><br />
+					</div>
 					<button id="submitForm" type="button" class="btn btn-primary">Submit</button>
 				</fieldset>
 			</div>
@@ -97,10 +102,10 @@
 		});
 
 		var viewModel = {
-			name : $.jStorage.get("name"),
-			email : $.jStorage.get("email"),
-			occupation : $.jStorage.get("occupation"),
-			company : $.jStorage.get("company")
+			name : ko.observable($.jStorage.get("name")),
+			email : ko.observable($.jStorage.get("email")),
+			occupation : ko.observable($.jStorage.get("occupation")),
+			company : ko.observable($.jStorage.get("company"))
 		};
 
 		ko.applyBindings(viewModel);

@@ -1,8 +1,4 @@
 (function($) {
-	$(".next").click(function() {
-		
-	})
-
 	$("#step1 .next").click(function() {
 		$("#step1, #step2").toggle();
 		updateProgress("20", "2");
