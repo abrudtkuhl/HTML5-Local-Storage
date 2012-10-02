@@ -1,10 +1,14 @@
 (function($) {
 	$.localData = {
-		set: function storeData() {
+		saveAll: function storeData() {
 			$('input').each(function() {
 				console.log("storing data -> " + $(this).attr("name") + ":" + $(this).val());
 				$.jStorage.set($(this).attr("name"), $(this).val());
 			});
+		},
+		saveItem: function storeDataItem(object) {
+			console.log("saving item data -> " + $(object).val());
+			$.jStorage.set($(object).attr("name"), $(object).val());
 		},
 		get: function getData() {
 			console.log("getting data");
