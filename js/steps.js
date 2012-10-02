@@ -23,6 +23,7 @@
 function updateProgress(step) {
 	$("#progress-step").html(step);
 
+	// this is pretty nasty... REFACTOR ME PLEASE!!!!!!!!!!!!
 	var percent = 0;
 
 	if (step == 1)
