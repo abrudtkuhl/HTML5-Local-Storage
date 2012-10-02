@@ -99,19 +99,21 @@
 			$("#submitForm").click(function() {
 				console.log("saving data::" + $.localData.getJSON());
 				$.localData.flush();
-				$("#confirmModal").modal('hide');
-				checkStep();
+				window.location.reload();
 			});
 
 			$("input").focusout(function() { $.localData.saveObject($(this)); });
 		});
-		$.localData.viewModel = {
+
+		var viewModel = {
 			name : ko.observable($.jStorage.get("name")),
 			email : ko.observable($.jStorage.get("email")),
 			occupation : ko.observable($.jStorage.get("occupation")),
 			company : ko.observable($.jStorage.get("company"))
 		};
-		ko.applyBindings($.localData.viewModel);
+
+		$.localData.viewModel = viewModel;
+		$.localData.bind();
 
 	</script>
 	<div class="modal hide fade" id="confirmModal">

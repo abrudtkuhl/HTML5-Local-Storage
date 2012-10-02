@@ -31,6 +31,10 @@
 			console.log("getting json data from local data storage");
 			return ko.toJSON(this.viewModel);
 		},
+		bind: function bindData() {
+			console.log("binding data");
+			ko.applyBindings(this.viewModel);
+		},
 		viewModel: this.viewModel
 	}
 })(jQuery);
