@@ -98,7 +98,7 @@
 				$.localData.flush();
 			});
 
-			$("input").blur(function() { $.localData.saveItem($(this)); });
+			$("input").focusout(function() { $.localData.saveItem($(this)); });
 		});
 
 		var viewModel = {
