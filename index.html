@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jStorage Testing</title>
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<h1>Wizard With Local Storage</h1>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<h3>Step <span id="progress-step">1</span></h3>
+				<div class="progress">
+					<div class="bar" style="width: 10%;"></div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<div class="row-fluid">
+			<div class="span12">
+				<fieldset id="step1">
+					<legend>Your Information</legend>
+					<form id="formStep1" class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="inputName">Name</label>
+							<div class="controls">
+								<input type="text" id="inputName" name="inputName" />
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="inputEmail">Email</label>
+							<div class="controls">
+								<input type="text" id="inputEmail" name="inputEmail" />
+							</div>
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								<button type="button" class="btn btn-primary next">Next</button>
+							</div>
+						</div>
+					</form>
+				</fieldset>
+				<fieldset id="step2" class="hide">
+					<legend>Your Information</legend>
+					<form id="formStep2" class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="inputOccupation">Occupation</label>
+							<div class="controls">
+								<input type="text" id="inputOccupation" name="inputOccupation" />
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="inputCompany">Company</label>
+							<div class="controls">
+								<input type="text" id="inputCompany" name="inputCompany" />
+							</div>
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								<button type="button" class="btn btn-primary back">Back</button>
+								<button type="button" class="btn btn-primary next">Next</button>
+							</div>
+						</div>
+					</form>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<!-- scripts -->
+	<script src="https://raw.github.com/douglascrockford/JSON-js/master/json2.js"></script>
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="https://raw.github.com/andris9/jStorage/master/jstorage.js"></script>
+	<script src="js/localData.js"></script>
+	<script src="js/steps.js"></script>
+	<script>$(document).ready(function() { $.localData.get(); });</script>
+</body>
+</html>
