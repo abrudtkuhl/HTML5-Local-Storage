@@ -1,20 +1,21 @@
 (function($) {
-	$("#step1 .next").click(function() {
-		// step 1: validate
-			//TODO
-		// step 2: save to local storage
+	$(".next").click(function() {
 		$.localData.set();
-		// step 3: go to next
-		$("#step1, #step2").toggle();
+	})
 
+	$("#step1 .next").click(function() {
+		$("#step1, #step2").toggle();
 		updateProgress("20", "2");
 	});
 
 	$("#step2 .back").click(function() {
-		// step 3: go to next
 		$("#step1, #step2").toggle();
-
 		updateProgress("10", "1");
+	});
+
+	$("#step2 .next").click(function() {
+		$("#step2, #step3").toggle();
+		updateProgress("100", "3");
 	});
 
 })(jQuery);
