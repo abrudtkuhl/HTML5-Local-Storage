@@ -25,7 +25,7 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span12">
-				<fieldset id="step1">
+				<fieldset id="step1" class="step">
 					<legend>Your Information</legend>
 					<form id="formStep1" class="form-horizontal" action="#">
 						<div class="control-group">
@@ -47,7 +47,7 @@
 						</div>
 					</form>
 				</fieldset>
-				<fieldset id="step2" class="hide">
+				<fieldset id="step2" class="step hide">
 					<legend>Your Job</legend>
 					<form id="formStep2" class="form-horizontal" action="#">
 						<div class="control-group">
@@ -70,7 +70,7 @@
 						</div>
 					</form>
 				</fieldset>
-				<fieldset id="step3" class="hide">
+				<fieldset id="step3" class="step hide">
 					<legend>Review and Submit</legend>
 					<div class="well">
 						Name: <span data-bind="text: name"></span><br />
@@ -94,21 +94,21 @@
 	<script>
 		$(document).ready(function() { 
 			$("#submitForm").click(function() {
-				console.log("saving data::" + ko.toJSON(viewModel));
+				console.log("saving data::" + $.localData.getJSON());
 				$.localData.flush();
 			});
 
-			$("input").focusout(function() { $.localData.saveItem($(this)); });
-		});
+			$("input").focusout(function() { $.localData.saveObject($(this)); });
 
-		var viewModel = {
+			checkStep();
+		});
+		$.localData.viewModel = {
 			name : ko.observable($.jStorage.get("name")),
 			email : ko.observable($.jStorage.get("email")),
 			occupation : ko.observable($.jStorage.get("occupation")),
 			company : ko.observable($.jStorage.get("company"))
 		};
-
-		ko.applyBindings(viewModel);
+		ko.applyBindings($.localData.viewModel);
 
 	</script>
 
