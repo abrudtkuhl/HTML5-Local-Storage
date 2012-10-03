@@ -17,69 +17,84 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span12">
-				<h3>Step <span id="progress-step">1</span></h3>
-				<div class="progress">
-					<div class="bar" style="width: 10%;"></div>
-				</div>
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="span12">
-				<fieldset id="step1" class="step">
-					<legend>Your Information</legend>
-					<form id="formStep1" class="form-horizontal form" action="#">
-						<div class="control-group">
-							<label class="control-label" for="name">Name</label>
-							<div class="controls">
-								<input type="text" name="name" data-bind="value: name" class="required" />
-							</div>
+				<ul class="nav nav-tabs" id="tabs">
+				  <li><a href="#contact" data-toggle="tab">Contact</a></li>
+				  <li><a href="#work" data-toggle="tab">Work</a></li>
+				  <li><a href="#review" data-toggle="tab">Review</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="contact">
+						<div class="progress">
+							<div class="bar" style="width: 30%;"></div>
 						</div>
-						<div class="control-group">
-							<label class="control-label" for="email">Email</label>
-							<div class="controls">
-								<input type="text" name="email" data-bind="value: email" class="required email" />
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="controls">
-								<button type="button" class="btn btn-primary next">Next</button>
-							</div>
-						</div>
-					</form>
-				</fieldset>
-				<fieldset id="step2" class="step hide">
-					<legend>Your Job</legend>
-					<form id="formStep2" class="form-horizontal form" action="#">
-						<div class="control-group">
-							<label class="control-label" for="occupation">Occupation</label>
-							<div class="controls">
-								<input type="text" id="occupation" name="occupation" data-bind="value: occupation" />
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label" for="company">Company</label>
-							<div class="controls">
-								<input type="text" id="company" name="company" data-bind="value: company" />
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="controls">
-								<button type="button" class="btn btn-primary back">Back</button>
-								<button type="button" class="btn btn-primary next">Next</button>
-							</div>
-						</div>
-					</form>
-				</fieldset>
-				<fieldset id="step3" class="step hide">
-					<legend>Review and Submit</legend>
-					<div class="well">
-						Name: <span data-bind="text: name"></span><br />
-						Email: <span data-bind="text: email"></span><br />
-						Company: <span data-bind="text: company"></span><br />
-						Occupation: <span data-bind="text: occupation"></span><br />
+						<fieldset id="step1">
+							<legend>Step 1: Your Information</legend>
+							<form id="formStep1" class="form-horizontal form" action="#">
+								<div class="control-group">
+									<label class="control-label" for="name">Name</label>
+									<div class="controls">
+										<input type="text" name="name" data-bind="value: name" class="required" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="email">Email</label>
+									<div class="controls">
+										<input type="text" name="email" data-bind="value: email" class="required email" />
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										<button type="button" class="btn btn-primary next">Next</button>
+									</div>
+								</div>
+							</form>
+						</fieldset>
 					</div>
-					<a href="#confirmModal" role="button" class="btn btn-primary" data-toggle="modal">Submit</a>
-				</fieldset>
+					<div class="tab-pane" id="work">
+						<div class="progress">
+							<div class="bar" style="width: 60%;"></div>
+						</div>
+						<fieldset id="step2">
+							<legend>Step 2: Work History</legend>
+							<form id="formStep2" class="form-horizontal form" action="#">
+								<div class="control-group">
+									<label class="control-label" for="occupation">Occupation</label>
+									<div class="controls">
+										<input type="text" id="occupation" name="occupation" data-bind="value: occupation" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="company">Company</label>
+									<div class="controls">
+										<input type="text" id="company" name="company" data-bind="value: company" />
+									</div>
+								</div>
+								<div class="control-group">
+									<div class="controls">
+										<button type="button" class="btn btn-primary back">Back</button>
+										<button type="button" class="btn btn-primary next">Next</button>
+									</div>
+								</div>
+							</form>
+						</fieldset>
+					</div>
+					<div class="tab-pane" id="review">
+						<div class="progress">
+							<div class="bar" style="width: 90%;"></div>
+						</div>
+						<fieldset id="step3">
+							<legend>Step 3: Review</legend>
+							<div class="well">
+								Name: <span data-bind="text: name"></span><br />
+								Email: <span data-bind="text: email"></span><br />
+								Company: <span data-bind="text: company"></span><br />
+								Occupation: <span data-bind="text: occupation"></span><br />
+							</div>
+							<a href="#confirmModal" role="button" class="btn btn-primary" data-toggle="modal">Submit</a>
+						</fieldset>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -95,7 +110,11 @@
 	<script src="js/localData.js"></script>
 	<script>
 		$(document).ready(function() { 
-			checkStep();
+			//checkStep();
+
+			$(function () {
+			    $('#tabs a:first').tab('show');
+			})
 
 			$("#submitForm").click(function() {
 				console.log("saving data::" + $.localData.getJSON());
