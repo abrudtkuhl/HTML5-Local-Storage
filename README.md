@@ -7,3 +7,4 @@ A test project featuring a multi-step form using HTML5 local storage
 - jStorage - https://github.com/andris9/jStorage  
 - KnockouJS - https://github.com/SteveSanderson/knockout  
 - Twitter Bootstrap - https://github.com/twitter/bootstrap  
+- jQuery Validation - http://bassistance.de/jquery-plugins/jquery-plugin-validation/  
