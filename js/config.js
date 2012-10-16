@@ -10,8 +10,8 @@ function customize(config) {
 	console.log(config);
 
 	/* logo */
-	$("#logo").attr("src", config.logo);
-	$("#logo").attr("alt", config.company + " Online Job Application");
+	$("#title").css('background', 'url(' + config.logo + ') left no-repeat');
+	$("#title").attr("title", config.company + " Online Job Application");
 
 	/* title */
 	$("#company-name").html(config.company);
