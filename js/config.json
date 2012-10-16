@@ -1,5 +1,6 @@
 {
 	"company":"Acme, Co",
+	"application":"Online Registration",
 	"logo":"http://staffninja.s3.amazonaws.com/1x40.png",
 	"tabs": {
 		"work":true,

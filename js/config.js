@@ -9,12 +9,12 @@ function customize(config) {
 	console.log("customizing the UI based on local config");
 	console.log(config);
 
-	/* logo */
+	/* title + logo */
 	$("#title").css('background', 'url(' + config.logo + ') left no-repeat');
-	$("#title").attr("title", config.company + " Online Job Application");
-
-	/* title */
-	$("#company-name").html(config.company);
+	var appTitle = config.company + " " + config.application;
+	$("#title").attr("title", appTitle);
+	$("#title").html(appTitle);
+	document.title = appTitle;
 
 	/* tabs */
 	$.each(config.tabs, function(key, value) {
