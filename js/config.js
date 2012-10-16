@@ -11,6 +11,10 @@ function customize(config) {
 
 	/* logo */
 	$("#logo").attr("src", config.logo);
+	$("#logo").attr("alt", config.company + " Online Job Application");
+
+	/* title */
+	$("#company-name").html(config.company);
 
 	/* tabs */
 	$(config.tabs).each(function(key,value) {
