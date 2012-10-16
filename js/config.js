@@ -17,7 +17,10 @@ function customize(config) {
 	$("#company-name").html(config.company);
 
 	/* tabs */
-	$(config.tabs).each(function(key,value) {
-		//alert(value.work);
+	$.each(config.tabs, function(key, value) {
+		if (!value) {
+			$("#" + key).hide();
+			$("#" + key + "-tab").hide();
+		}
 	});
 }
