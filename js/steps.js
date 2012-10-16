@@ -1,3 +1,5 @@
+/* this needs refactored... probably to jQuery Form Wizard */
+
 (function($) {
 	
 	$("#step1 .next").click(function() {
