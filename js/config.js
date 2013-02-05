@@ -6,9 +6,6 @@ $(document).ready(function() {
 });
 
 function customize(config) {
-	console.log("customizing the UI based on local config");
-	console.log(config);
-
 	/* title + logo */
 	$("#title").css('background', 'url(' + config.logo + ') left no-repeat');
 	var appTitle = config.company + " " + config.application;
