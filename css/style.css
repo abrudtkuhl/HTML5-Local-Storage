@@ -1,2 +1,5 @@
 /* main styles */
 #title { padding-left: 40px; }
+
+/* debug styles */
+#debug-data textarea { width: 98%; }
